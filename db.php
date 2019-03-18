@@ -19,31 +19,36 @@ function connect()
         DB_NAME
     );
 
-    if ($db->connect_error) {
+    if ($db->connect_error)
+    {
         die("FATAL ERROR: Failed to connect to database: \n"
             . $db->connect_error . "\n"
             . $db->connect_errno
         );
     }
+
+    // Enable MySQL error reporting.
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+    $GLOBALS['database'] = $db;
     return $db;
 }
 
-// Establish the connection and set it to the variable $db so it can be used.
-$db = connect();
+// Establish the connection to test connectivity, will throw errors if there is any issues connecting.
+connect();
 
 //---------------------------- [MySQLi Functions] --------------------------------------
 
 /*
  * Executes the provided query and returns the respective result.
- * @param mysqli $db
  * @param String $query
  * @return Fetch result if a result exists, false otherwise.
  */
-function fetch(mysqli $db, $query)
+function fetch($query)
 {
     $data = false;
 
-    $query = mysqli_query($db, $query);
+    $query = mysqli_query($GLOBALS['database'], $query);
     $result = mysqli_fetch_assoc($query);
     if ($result)
     {
