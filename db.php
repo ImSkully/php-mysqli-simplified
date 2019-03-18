@@ -7,6 +7,8 @@
 
 require_once 'config/database.php'; // Require database details for connection.
 
+$GLOBALS['database'] = false; // Define super global variable to hold database object, initialize as false for now.
+
 // Primary connection function which creates a connection to the database.
 function connect()
 {
