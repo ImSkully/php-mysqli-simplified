@@ -60,12 +60,12 @@ function fetch($query)
 
 /*
  * Executes teh provided query and returns an array of all results.
- * @param mysqli $db
  * @param String $query
  * @return Array containing all results.
  */
-function fetchAll(mysqli $db, $query)
+function fetchAll($query)
 {
+    $db = connect();
     $data = [];
 
     $results = $db->query($query);
@@ -82,23 +82,21 @@ function fetchAll(mysqli $db, $query)
 
 /*
  * Executes the provided query.
- * @param mysqli $db
  * @param String $query
  * @return The mysqli database connection.
  */
-function execute(mysqli $db, $query)
+function execute($query)
 {
-    $db->query($query);
-    return $db;
+    $GLOBALS['database']->query($query);
+    return $GLOBALS['database'];
 }
 
 /*
  * Used to string escaping within queries.
- * @param mysqli $db
  * @param String $data
  * @return The escaped mysqli data.
  */
-function escape(mysqli $db, $data)
+function escape($data)
 {
-    return $db->real_escape_string($data);
+    return $GLOBALS['database']->real_escape_string($data);
 }
