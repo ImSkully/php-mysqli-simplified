@@ -1,5 +1,5 @@
 {
-  "name": "ImSkully/php-mysqli-simplified",
+  "name": "imskully/php-mysqli-simplified",
   "type": "library",
   "description": "MySQLi interface usage further simplified.",
   "keywords": ["mysqli", "simplified", "ImSkully"],
@@ -14,11 +14,12 @@
     }
   ],
   "require": {
-    "php": ">=5.3.0"
+    "php": ">=5.3.0",
+    "ext-json": "*",
   },
   "autoload": {
     "psr-0": {
       "mysqli_simplified": "src"
     }
-  }
+  },
 }
