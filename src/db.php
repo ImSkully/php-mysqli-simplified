@@ -1,9 +1,9 @@
 <?php
 /**
  * @author  Skully (https://github.com/ImSkully)
- * @website http://skully.tech
- * @email   skully@ultranetwork.net
- * @updated 06/08/2020 (dd/mm/yyyy)
+ * @website https://skully.tech
+ * @email   contact@skully.tech
+ * @updated 20/08/2021 (dd/mm/yyyy)
  *
  * A simplified API for the PHP mysqli driver, combining the usage of
  * a single connection per database; supports multiple database connections!
